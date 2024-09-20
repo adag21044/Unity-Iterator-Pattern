@@ -10,11 +10,13 @@ public class PatrolIterator
         this.patrolRoute = route;
     }
 
+    // Checks if there is another patrol point to visit
     public bool HasNext()
     {
         return currentIndex < patrolRoute.GetPatrolPointCount();
     }
 
+    // Returns the current patrol point and advances the iterator
     public Vector3 Next()
     {
 
