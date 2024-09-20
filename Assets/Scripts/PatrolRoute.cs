@@ -1,34 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolRoute : MonoBehaviour, IEnumerable<Vector3>
+public class PatrolRoute : MonoBehaviour
 {
     private List<Vector3> patrolPoints = new List<Vector3>();
 
-    // Add point to the patrol route
+    // Devriye rotasına nokta ekler
     public void AddPatrolPoint(Vector3 point)
     {
         patrolPoints.Add(point);
     }
 
-    public IEnumerator<Vector3> GetEnumerator()
+    public Vector3 GetPatrolPoint(int index)
     {
-        return patrolPoints.GetEnumerator();
+        if (index < 0 || index >= patrolPoints.Count)
+        {
+            return Vector3.zero; // Geçersiz index kontrolü
+        }
+        return patrolPoints[index];
     }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
 
     public int GetPatrolPointCount()
     {
         return patrolPoints.Count;
     }
 
-    // Devriye rotasına sahnedeki belirli objeleri eklemek için
+    // Sahnedeki belirli objelerin Transform'larını devriye rotasına ekler
     public void AddTransform(Transform point)
     {
         patrolPoints.Add(point.position);

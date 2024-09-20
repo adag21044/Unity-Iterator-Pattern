@@ -19,13 +19,16 @@ public class PatrolIterator
     {
 
         if(!HasNext()) return Vector3.zero;
-        return patrolRoute.GetEnumerator().Current;
+        return patrolRoute.GetPatrolPoint(currentIndex);
     }
 
     // Move to the next point in the patrol route
     public void MoveNext()
     {
-        currentIndex++;
+        if (HasNext())
+        {
+            currentIndex++;
+        }
     }
 
     // Reset the iterator to the beginning of the patrol route

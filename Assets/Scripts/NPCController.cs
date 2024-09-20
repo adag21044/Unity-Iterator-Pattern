@@ -13,6 +13,7 @@ public class NPCController : MonoBehaviour
         patrolRoute.AddTransform(GameObject.Find("Point1").transform);
         patrolRoute.AddTransform(GameObject.Find("Point2").transform);
         patrolRoute.AddTransform(GameObject.Find("Point3").transform);
+        patrolRoute.AddTransform(GameObject.Find("Point4").transform);
 
         patrolIterator = new PatrolIterator(patrolRoute);
         GoToNextPatrolPoint();
